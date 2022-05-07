@@ -1,0 +1,62 @@
+.ActivityRow, .normal{
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    height: 42px;
+    border-bottom: solid 1px lightgray;
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+
+}
+
+.bi-sticky-fill{
+    padding-left: 10px;
+}
+
+.infoContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.Name{
+    padding-left: 10px;
+}
+
+.Hour{
+    padding-right: 10px;
+    background-color: white;
+}
+
+.hover{
+    width: 0%;
+    height: 100%;
+    display: flex;
+    transition: width .5s;
+}
+
+.bi-pencil-fill, .bi-trash3-fill{
+    width: 50%;
+    height: 100%;
+    color: white;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+}
+
+.bi-pencil-fill::before, .bi-trash3-fill::before{
+    margin: auto;
+}
+
+.bi-pencil-fill{
+    background-color: cornflowerblue;
+}
+
+.bi-trash3-fill{
+    background-color: red;
+}
+
+.ActivityRow:hover .hover{
+    width: 25%;
+    transition: width .5s;
+}

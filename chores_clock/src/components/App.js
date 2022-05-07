@@ -1,10 +1,18 @@
 
 import React from 'react'
-import Clock from './Clock'
+import '../styles/App.css'
+import BottomHalf from './BottomHalf'
+import TopHalf from './TopHalf'
 
 function App() {
 
-  return <Clock/>
+  return (
+    <div className='App'>
+      <TopHalf/>
+      <BottomHalf/>
+    </div>
+  )
+  
 }
 
 export default App

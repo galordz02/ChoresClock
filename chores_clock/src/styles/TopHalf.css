@@ -1,0 +1,20 @@
+.TopHalf{
+    margin: 0%;
+    padding: 0%;
+    position: fixed;
+    background-color: white;
+}
+
+@media (orientation: portrait) {
+    .TopHalf{
+        height: 50%;
+        width: 100%;
+
+    }
+}
+@media (orientation: landscape) {
+    .TopHalf{
+        height: 100%;
+        width: 50%;
+    }
+}

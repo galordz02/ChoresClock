@@ -1,0 +1,17 @@
+.App{
+    height: 100vh;
+    width: 100vw;
+    padding: 0%;
+    margin: 0%;    
+}
+
+@media (orientation: landscape) {
+    .App{
+        display: flex;
+    }
+}
+@media (orientation: portrait) {
+    .App{
+        display: block;
+    }
+}

@@ -1,0 +1,23 @@
+.BottomHalf{
+    display: block;
+}
+
+.emptySpace{
+    width: 100%;
+    height: 65px;
+}
+
+@media (orientation: portrait) {
+    .BottomHalf{
+        height: 50%;
+        width: 100%;
+        padding-top: 50vh;
+    }
+}
+@media (orientation: landscape) {
+    .BottomHalf{
+        height: 100%;
+        width: 50%;
+        margin-left: 50%;
+    }
+}
