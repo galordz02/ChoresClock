@@ -21,6 +21,10 @@ function Clock() {
     var dateDay;
     var dateMonth;
     var dateYear;
+    var hours2;
+    var minutes2;
+    var dateDay2;
+    var dateMonth2;
     
     function circle(ctx, x, y, radio, sa, ea, p, color) {
       ctx.beginPath();
@@ -100,28 +104,28 @@ function Clock() {
       var y3 = y2 + 20;
       var dayName;
   
-      if (info2 = 1){
+      if (info2 == 1){
         dayName = "Monday";
       }
-      if (info2 = 2){
+      if (info2 == 2){
         dayName = "Tuesday";
       }
-      if (info2 = 3){
+      if (info2 == 3){
         dayName = "Wednesday";
       }
-      if (info2 = 4){
+      if (info2 == 4){
         dayName = "Thursday";
       }
-      if (info2 = 5){
+      if (info2 == 5){
         dayName = "Friday";
       }
-      if (info2 = 6){
+      if (info2 == 6){
         dayName = "Saturday";
       }
-      if (info2 = 7){
+      if (info2 == 9){
         dayName = "Friday";
       }
-  
+
       ctx.fillStyle = color;
       ctx.font = "30px Arial";
       ctx.fillText(info1 , x1, y);
@@ -139,7 +143,7 @@ function Clock() {
       circle (ctx, halfWidthOfCanvas, halfHeightOfCanvas, vary, 0, 2, 1, "gray");
       tickLine(ctx, hour, 2, "red");
       drawInfo(ctx, halfWidthOfCanvas, halfHeightOfCanvas, "black", 
-      (hours + ":" + minutes), day, date)
+      (hours2 + ":" + minutes2), day, date)
       //clock_numbers(ctx, varx/1.2, halfWidthOfCanvas-8, halfHeightOfCanvas+8);
     }
   
@@ -184,18 +188,35 @@ function Clock() {
       hour = (hours*60) + minutes;
       day = new Date().getDay();
       dateDay = new Date().getDate();
-      dateMonth = new Date().getMonth();
+      dateMonth = (new Date().getMonth()) + 1;
       dateYear = new Date().getFullYear();
-      date = dateDay+"/"+dateMonth+"/"+dateYear;
-    
-      hours = new Date().getHours();
-      minutes = new Date().getMinutes();
-      hour = (hours*60) + minutes;
-      day = new Date().getDay();
-      dateDay = new Date().getDate();
-      dateMonth = new Date().getMonth();
-      dateYear = new Date().getFullYear();
-      date = dateDay+"/"+dateMonth+"/"+dateYear;
+
+      if (dateDay < 10){
+        dateDay2 = "0" + dateDay
+      } else{
+        dateDay2 = dateDay
+      }
+
+      if (dateMonth < 10){
+        dateMonth2 = "0" + dateMonth
+      } else{
+        dateMonth2 = dateMonth
+      }
+
+      if (hours < 10){
+        hours2 = "0" + hours
+      } else{
+        hours2 = hours
+      }
+
+      if (minutes < 10){
+        minutes2 = "0" + minutes 
+      } else{
+        minutes2 = minutes
+      }
+      
+      date = dateDay2+"/"+dateMonth2+"/"+dateYear;
+
       context.clearRect(0, 0, canvas.width, canvas.height);
       draw_clock(context);
       range(context, 0, 120);
@@ -207,22 +228,37 @@ function Clock() {
         hour = (hours*60) + minutes;
         day = new Date().getDay();
         dateDay = new Date().getDate();
-        dateMonth = new Date().getMonth();
+        dateMonth = (new Date().getMonth()) + 1;
         dateYear = new Date().getFullYear();
-        date = dateDay+"/"+dateMonth+"/"+dateYear;
-      
-        hours = new Date().getHours();
-        minutes = new Date().getMinutes();
-        hour = (hours*60) + minutes;
-        day = new Date().getDay();
-        dateDay = new Date().getDate();
-        dateMonth = new Date().getMonth();
-        dateYear = new Date().getFullYear();
-        date = dateDay+"/"+dateMonth+"/"+dateYear;
+        date = dateDay2+"/"+dateMonth2+"/"+dateYear;
+
+        if (dateDay < 10){
+          dateDay2 = "0" + dateDay
+        } else{
+          dateDay2 = dateDay
+        }
+
+        if (dateMonth < 10){
+          dateMonth2 = "0" + dateMonth
+        } else{
+          dateMonth2 = dateMonth
+        }
+
+        if (hours < 10){
+          hours2 = "0" + hours
+        } else{
+          hours2 = hours
+        }
+
+        if (minutes < 10){
+          minutes2 = "0" + minutes 
+        } else{
+          minutes2 = minutes
+        }
+
         context.clearRect(0, 0, canvas.width, canvas.height);
         draw_clock(context);
         range(context, 0, 120);
-  
   
       }, 1000);
       return () => clearInterval(timer);
