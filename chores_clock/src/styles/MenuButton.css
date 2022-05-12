@@ -3,11 +3,9 @@
     width: 42px;
     border: solid 1px lightgray;
     border-radius: 30%;
-    position: fixed;
-    left: 10%;
-    top: 5%;
-    transform: translate(-50%, -50%);
-
+    position: absolute;
+    left: 15px;
+    top: 15px;
     display: flex;
     align-items: center;
 
@@ -19,11 +17,3 @@
     font-size: x-large;
 }
 
-@media (orientation: landscape) {
-    .MenuButton {
-        position: fixed;
-        left: 6%;
-        top: 10%;
-
-    }
-}
