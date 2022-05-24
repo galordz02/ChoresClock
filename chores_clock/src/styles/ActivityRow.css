@@ -1,15 +1,18 @@
 .ActivityRow, .normal{
     font-family: Arial, Helvetica, sans-serif;
     align-items: center;
-    height: 42px;
-    border-bottom: solid 1px lightgray;
+    height: 45px;
     overflow: hidden;
     display: flex;
     width: 100%;
 
 }
 
-.bi-sticky-fill{
+.ActivityRow{
+    border-bottom: solid 1px lightgray;
+}
+
+.normal{
     padding-left: 10px;
 }
 
@@ -17,6 +20,7 @@
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
+    font-size: 20px;
 }
 
 .Name{

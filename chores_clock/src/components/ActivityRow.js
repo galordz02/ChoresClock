@@ -5,9 +5,8 @@ function ActivityRow( {Colour, Name, Hour} ) {
     return (
         <div className="ActivityRow">
             <div className='normal'>
-                <i className="bi bi-sticky-fill" style={{ 
+                <i className="r bi bi-sticky-fill" style={{ 
                     color: Colour,
-                    fontSize: "22px" 
                     }}>
                 </i>
                 <div className='infoContainer'>

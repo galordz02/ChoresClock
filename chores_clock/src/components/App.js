@@ -7,7 +7,7 @@ import TopHalf from './TopHalf'
 function App() {
 
   return (
-    <div className='App'>
+    <div className='App' id='App'>
       <TopHalf/>
       <BottomHalf/>
     </div>

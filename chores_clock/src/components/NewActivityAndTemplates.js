@@ -1,18 +1,13 @@
 import React from 'react'
 import '../styles/NewActivityAndTemplates.css'
-import { ReactComponent as Template } from '../images/template.svg'
+import NewActivity from './NewActivity'
+import Templates from './Templates'
 
 function NewActivityAndTemplates() {
 
   return <div className='NAAT'>
-    <div className='NAButton'>
-      <i className="bi bi-plus-lg "></i>
-      <div>New Activity</div>
-    </div>
-    <div className='TemplatesButton'>
-      <Template className='Templates'/>
-      <div className='TemplatesText'>Templates</div>
-    </div>
+    <NewActivity/>
+    <Templates/>
   </div>
 }
 
