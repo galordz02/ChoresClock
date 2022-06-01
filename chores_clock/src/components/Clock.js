@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
+import styled from 'styled-components'
 import useWindowDimensions from './WSHook'
-import '../styles/Clock.css'
 
 function Clock() {
   const canvasRef = useRef(null)
@@ -252,14 +252,50 @@ function Clock() {
     
       return <canvas ref={canvasRef} {...props}/>
   }
+
+  const ClockInfo = styled.div`
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0%;
+    padding: 0%;
+
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    align-items: center;
+
+    z-index: 1;
+  `;
+
+  const ClockHour = styled.div`
+  font-size: 200%;
+  margin: auto;
+  padding: 0%;
+  text-align: center;
+  `;
+
+  const ClockDay = styled.div`
+  font-size: 100%;
+  margin: auto;
+  padding: 0%;
+  text-align: center;
+  `;
+
+  const ClockDate = styled.div`
+  font-size: 100%;
+  margin: auto;
+  padding: 0%;
+  text-align: center;
+  `;
+
   return (
     <React.Fragment>
       <Clockc/>
-      <div className='clockInfo'>
-        <div className='clockHour'>{hours2}:{minutes2}</div>
-        <div className='clockDay'>{dayName}</div>
-        <div className='clockDate'>{dateDay2}/{dateMonth2}/{dateYear2}</div>
-      </div>
+      <ClockInfo>
+        <ClockHour>{hours2}:{minutes2}</ClockHour>
+        <ClockDay>{dayName}</ClockDay>
+        <ClockDate>{dateDay2}/{dateMonth2}/{dateYear2}</ClockDate>
+      </ClockInfo>
     </React.Fragment>
 
   )
