@@ -5,12 +5,13 @@ function ActivityRow( {Colour, Name, Hour} ) {
 
     const Normal = styled.div`
     font-family: Arial, Helvetica, sans-serif;
-    align-items: center;
     height: 45px;
-    overflow: hidden;
+    min-width: 95%;
+    align-items: center;
     display: flex;
-    width: 100%;
-    padding-left: 10px;
+    scroll-snap-align: start;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
     .bi-sticky-fill{
         font-size: 30px;
         display: flex;
@@ -29,51 +30,66 @@ function ActivityRow( {Colour, Name, Hour} ) {
     padding-left: 10px;
     `;
     const HourClass = styled.div`
-    padding-right: 10px;
     background-color: white;
     `;
-    const Hover = styled.div`
-    width: 0%;
+    const SwipedPencil = styled.div`
+    min-width: 100%;
     height: 100%;
     display: flex;
-    transition: width .5s;
-    .bi-pencil-fill, .bi-trash3-fill{
-        width: 50%;
+    background-color: cornflowerblue;
+    .bi-pencil-fill{
         height: 100%;
-        color: white;
         font-size: x-large;
         display: flex;
         align-items: center;
+        color: white;
+        position: sticky;
+        left: 16px;
+        margin: auto; 
     }
-    
-    .bi-pencil-fill::before, .bi-trash3-fill::before{
+    .bi-pencil-fill::before{
         margin: auto;
     }
-    
-    .bi-pencil-fill{
-        background-color: cornflowerblue;
-    }
-    
+    `;
+    const SwipedTrash = styled.div`
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    position: sticky;
+    background-color: #f73722;
+    justify-content: flex-end;
     .bi-trash3-fill{
-        background-color: red;
-    }    
+        height: 100%;
+        font-size: x-large;
+        display: flex;
+        align-items: center;
+        color: white;
+        position: sticky;
+        right: 16px;
+        margin: auto;
+    }
+    .bi-trash3-fill::before{
+        margin: auto;
+    }
     `;
     const ActivityRow = styled.div`
     font-family: Arial, Helvetica, sans-serif;
-    align-items: center;
     height: 45px;
-    overflow: hidden;
     display: flex;
-    width: 100%;
+    overflow: auto;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
     border-bottom: solid 1px lightgray;
-    &:hover ${Hover}{
-        width: 25%;
-        transition: width .5s;
-    }
+    ::-webkit-scrollbar{
+        display: none;
+    }      
     `; 
 
     return (
         <ActivityRow>
+            <SwipedPencil>
+                <i className="bi bi-pencil-fill"></i>
+            </SwipedPencil>
             <Normal>
                 <i className="bi bi-sticky-fill" style={{ 
                     color: Colour,
@@ -84,10 +100,9 @@ function ActivityRow( {Colour, Name, Hour} ) {
                     <HourClass>{Hour}</HourClass>
                 </InfoContainer>
             </Normal>
-            <Hover>
-                <i className="bi bi-pencil-fill"></i>
+            <SwipedTrash>
                 <i className="bi bi-trash3-fill"></i>
-            </Hover>
+            </SwipedTrash>
         </ActivityRow>
         
     )
